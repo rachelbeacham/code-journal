@@ -1,0 +1,14 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+header {
+  background-color: rgb(79, 160, 160);
+  color: white;
+  justify-content: left;
+}
+
+h2 {
+  margin-left: 15px;
+  font-weight: bold;
+}
