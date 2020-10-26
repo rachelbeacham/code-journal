@@ -9,7 +9,8 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Nunito:wght@400;600&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Itim&family=Nunito:wght@400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -17,10 +18,35 @@
 </head>
 <body>
   <header class="row column-full">
-    <h2 >Code Journal</h2>
+    <h2>Code Journal</h2>
   </header>
   <main>
-    <div data-view="edit-profile">
+    <div data-view="edit-profile" class="container row">
+      <div class="column-full">
+        <h1>Edit Profile</h1>
+      </div>
+      <div class="image column-half column full">
+        <img class="placeholder" src="images/placeholder-image-square.jpg" alt="placeholder image">
+      </div>
+      <form class="column-full column-half edit-profile-form">
+        <label for="avatar-url">Avatar URL</label>
+        <input required name="avatar-url" id="avatar-url" type="url">
+        <label for="username">Username</label>
+        <input required name="username" id="username" type="text">
+        <label for="full-name">Full Name</label>
+        <input required name="full-name" id="full-name" type= "text">
+        <label for="location">Location</label>
+        <input required name="location" id="location" type="text">
+      </form>
+      <form class="column-full edit-profile-form">
+        <label for="bio">Bio</label>
+        <textarea required name="bio" id="bio" rows="8"></textarea>
+
+        <div class="form-action">
+          <button type="submit">SAVE</button>
+        </div>
+      </form>
+
 
     </div>
   </main>

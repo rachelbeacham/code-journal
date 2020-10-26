@@ -1,14 +1,69 @@
-body {
-  font-family: 'Nunito', sans-serif;
-}
-
-header {
+header,
+button {
   background-color: rgb(79, 160, 160);
   color: white;
-  justify-content: left;
+  font-family: 'Itim', cursive;
+}
+
+h1,
+label {
+  font-family: 'Itim', cursive;
+  color: rgb(79, 160, 160);
 }
 
 h2 {
   margin-left: 15px;
   font-weight: bold;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  resize: none;
+}
+
+input,
+textarea {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+input {
+  height: 40px;
+  margin-bottom: 30px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  color: rgb(112, 112, 112);
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 10%;
+  box-shadow: 2px 2px 11px 1px rgba(0, 0, 0, 0.74);
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  border-bottom: 2px solid darkgray;
+}
+
+.placeholder {
+  object-fit: cover;
+  width: 100%;
+}
+
+.form-action {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 0;
 }
