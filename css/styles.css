@@ -50,6 +50,10 @@ button {
   box-shadow: 2px 2px 11px 1px rgba(0, 0, 0, 0.74);
 }
 
+form > div {
+  width: 100%;
+}
+
 input:focus,
 textarea:focus,
 button:focus {
