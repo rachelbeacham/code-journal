@@ -29,14 +29,14 @@ input,
 textarea {
   border: 1px solid lightgray;
   border-radius: 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  color: rgb(112, 112, 112);
 }
 
 input {
   height: 40px;
   margin-bottom: 30px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
-  color: rgb(112, 112, 112);
 }
 
 label {

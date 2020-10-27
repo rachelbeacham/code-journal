@@ -1,5 +1,7 @@
-var $avatarUrlInput = document.getElementsByName('avatarUrl');
+var $avatarUrlInput = document.querySelector('.avatarUrl');
+var $profileImage = document.querySelector('.placeholder');
 
-$avatarUrlInput.addEventListener('input', function(e)) {
-
+function updateProfileImage(event) {
+  $profileImage.setAttribute('src', event.target.value);
 }
+$avatarUrlInput.addEventListener('input', updateProfileImage);
