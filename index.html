@@ -9,15 +9,52 @@
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Itim&family=Nunito:wght@400;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+
+  <header class="row">
+    <h2 class="column-full">Code Journal</h2>
   </header>
+
   <main>
-    <div data-view="edit-profile"></div>
+    <div data-view="edit-profile" class="container row">
+      <div class="column-full">
+        <h1>Edit Profile</h1>
+      </div>
+
+      <form class="edit-profile-form">
+        <div class="row">
+          <div class="image column-half">
+            <img class="placeholder" src="images/placeholder-image-square.jpg" alt="placeholder image">
+          </div>
+          <div class="column-half">
+            <label for="avatarUrl">Avatar URL</label>
+            <input required name="avatarUrl" id="avatarUrl" type="url">
+            <label for="username">Username</label>
+            <input required name="username" id="username" type="text">
+            <label for="fullName">Full Name</label>
+            <input required name="fullName" id="fullName" type= "text">
+            <label for="location">Location</label>
+            <input required name="location" id="location" type="text">
+          </div>
+
+         <div class="column-full">
+            <label for="bio">Bio</label>
+            <textarea required name="bio" id="bio" rows="5"></textarea>
+            <div class="form-action">
+              <button type="submit">SAVE</button>
+            </div>
+        </div>
+        </div>
+      </form>
+    </div>
+
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
