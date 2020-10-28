@@ -57,7 +57,7 @@ button:focus {
   border-bottom: 2px solid darkgray;
 }
 
-.placeholder {
+.image {
   width: 100%;
 }
 
@@ -65,4 +65,21 @@ button:focus {
   display: flex;
   justify-content: flex-end;
   margin: 30px 0;
+}
+
+i {
+  font-size: 1.3rem;
+  margin-right: 6px;
+}
+
+p {
+  font-size: 1.2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  color: rgb(112, 112, 112);
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
+}
+
+.about {
+  font-weight: bold;
 }
