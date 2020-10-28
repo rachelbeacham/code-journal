@@ -19,6 +19,7 @@ function formSubmitted(event) {
   data.profile.bio = $bio.value;
   data.profile.avatarUrl = $avatarUrl.value;
   $form.reset();
+  viewSwapping('profile');
 }
 
 $avatarUrl.addEventListener('input', updateProfileImage);
@@ -28,7 +29,7 @@ window.addEventListener('beforeunload', function () {
   localStorage.setItem('profile', dataProfileJson);
 });
 
-function renderProfile (data) {
+function renderProfile(data) {
   var containerDiv = document.createElement('div');
   containerDiv.setAttribute('data-view', 'profile');
   containerDiv.className = 'container';
@@ -46,10 +47,10 @@ function renderProfile (data) {
   var imageDiv = document.createElement('div');
   imageDiv.className = 'column-half';
 
-
   var profileImage = document.createElement('img');
   profileImage.setAttribute('src', data.profile.avatarUrl);
   profileImage.setAttribute('alt', 'user profile photo');
+  profileImage.className = 'image';
 
   var profileInfoDiv = document.createElement('div');
   profileInfoDiv.className = 'column-half profile-info';
@@ -93,12 +94,12 @@ function renderProfile (data) {
   return containerDiv;
 }
 
-function viewSwapping (currentValue) {
+function viewSwapping(currentValue) {
   if (currentValue === 'profile') {
     $container[0].className = 'container hidden';
     $container[1].remove();
     $main.appendChild(renderProfile(data));
-;
+
   } else if (currentValue === 'edit-profile') {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
