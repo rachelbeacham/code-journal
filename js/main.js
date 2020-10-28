@@ -1,16 +1,16 @@
 var $avatarUrl = document.querySelector('#avatarUrl');
-var $profileImage = document.querySelector('.placeholder');
+var $profileImage = document.querySelector('.image');
 var $username = document.querySelector('#username');
 var $fullName = document.querySelector('#fullName');
 var $location = document.querySelector('#location');
 var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
-var $main = document.querySelector('main');
 
 function updateProfileImage(event) {
   $profileImage.setAttribute('src', event.target.value);
 }
+
 function formSubmitted(event) {
   event.preventDefault();
   data.profile.username = $username.value;
@@ -23,11 +23,37 @@ function formSubmitted(event) {
 }
 
 $avatarUrl.addEventListener('input', updateProfileImage);
+
 $form.addEventListener('submit', formSubmitted);
+
 window.addEventListener('beforeunload', function () {
   var dataProfileJson = JSON.stringify(data.profile);
   localStorage.setItem('profile', dataProfileJson);
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  var userData = localStorage.getItem('profile');
+  if (userData !== null) {
+    data.profile = JSON.parse(userData);
+  } if (data.profile.username === '') {
+    viewSwapping('edit-profile');
+  } else {
+    viewSwapping('profile');
+  }
+});
+
+function viewSwapping(currentValue) {
+  if (currentValue === 'profile') {
+    $container[0].className = 'container hidden';
+    $container[1].className = 'container';
+    $container[1].innerHTML = '';
+    $container[1].appendChild(renderProfile(data));
+  } else if (currentValue === 'edit-profile') {
+    $container[1].className = 'container hidden';
+    $container[0].className = 'container';
+  }
+  data.view = currentValue;
+}
 
 function renderProfile(data) {
   var containerDiv = document.createElement('div');
@@ -92,17 +118,4 @@ function renderProfile(data) {
   locationDiv.appendChild(profileLocation);
 
   return containerDiv;
-}
-
-function viewSwapping(currentValue) {
-  if (currentValue === 'profile') {
-    $container[0].className = 'container hidden';
-    $container[1].remove();
-    $main.appendChild(renderProfile(data));
-
-  } else if (currentValue === 'edit-profile') {
-    $container[1].className = 'container hidden';
-    $container[0].className = 'container';
-  }
-  data.view = currentValue;
 }
