@@ -6,6 +6,7 @@ var $location = document.querySelector('#location');
 var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
+var $main = document.querySelector('main');
 
 function updateProfileImage(event) {
   $profileImage.setAttribute('src', event.target.value);
@@ -95,7 +96,9 @@ function renderProfile (data) {
 function viewSwapping (currentValue) {
   if (currentValue === 'profile') {
     $container[0].className = 'container hidden';
-    $container[1].className = 'container';
+    $container[1].remove();
+    $main.appendChild(renderProfile(data));
+;
   } else if (currentValue === 'edit-profile') {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
