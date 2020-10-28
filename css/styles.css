@@ -20,8 +20,8 @@ label,
 input,
 textarea {
   display: block;
+  margin-bottom: 6px;
   width: 100%;
-  margin: 10px 0;
   resize: none;
 }
 
