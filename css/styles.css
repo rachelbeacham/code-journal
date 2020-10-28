@@ -70,16 +70,18 @@ button:focus {
 i {
   font-size: 1.3rem;
   margin-right: 6px;
+
 }
 
-p {
+span, p {
   font-size: 1.2rem;
   font-family: 'Barlow Condensed', sans-serif;
   color: rgb(112, 112, 112);
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 15px;
+
 }
 
-.about {
-  font-weight: bold;
+.profile-info div {
+  height: 10%;
+  width: 100%;
+  margin-top: 15px;
 }
