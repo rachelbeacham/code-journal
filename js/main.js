@@ -100,4 +100,5 @@ function viewSwapping (currentValue) {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
   }
+  data.view = currentValue;
 }
