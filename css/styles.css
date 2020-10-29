@@ -70,18 +70,19 @@ button:focus {
 i {
   font-size: 1.3rem;
   margin-right: 6px;
-
 }
 
-span, p {
+span,
+p {
   font-size: 1.2rem;
   font-family: 'Barlow Condensed', sans-serif;
   color: rgb(112, 112, 112);
-
 }
 
-.profile-info div {
-  height: 10%;
+.profile-info div,
+p {
   width: 100%;
-  margin-top: 15px;
+  margin: 20px 0;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(79, 160, 160);
 }
