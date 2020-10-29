@@ -7,21 +7,6 @@ var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
 
-function updateProfileImage(event) {
-  $profileImage.setAttribute('src', event.target.value);
-}
-
-function formSubmitted(event) {
-  event.preventDefault();
-  data.profile.username = $username.value;
-  data.profile.fullName = $fullName.value;
-  data.profile.location = $location.value;
-  data.profile.bio = $bio.value;
-  data.profile.avatarUrl = $avatarUrl.value;
-  $form.reset();
-  viewSwapping('profile');
-}
-
 $avatarUrl.addEventListener('input', updateProfileImage);
 
 $form.addEventListener('submit', formSubmitted);
@@ -42,6 +27,34 @@ document.addEventListener('DOMContentLoaded', function () {
     viewSwapping('profile');
   }
 });
+
+document.addEventListener('click', function (e) {
+  if (e.target.getAttribute('href') === null) {
+    return;
+  }
+  if (e.target.getAttribute('href') === '#') {
+    if (e.target.getAttribute('data-view') === 'profile') {
+      viewSwapping('pofile');
+    } else {
+      viewSwapping('edit-profile');
+    }
+  }
+});
+
+function updateProfileImage(event) {
+  $profileImage.setAttribute('src', event.target.value);
+}
+
+function formSubmitted(event) {
+  event.preventDefault();
+  data.profile.username = $username.value;
+  data.profile.fullName = $fullName.value;
+  data.profile.location = $location.value;
+  data.profile.bio = $bio.value;
+  data.profile.avatarUrl = $avatarUrl.value;
+  $form.reset();
+  viewSwapping('profile');
+}
 
 function viewSwapping(currentValue) {
   if (currentValue === 'profile') {
