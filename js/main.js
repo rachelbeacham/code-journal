@@ -7,21 +7,6 @@ var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
 
-function updateProfileImage(event) {
-  $profileImage.setAttribute('src', event.target.value);
-}
-
-function formSubmitted(event) {
-  event.preventDefault();
-  data.profile.username = $username.value;
-  data.profile.fullName = $fullName.value;
-  data.profile.location = $location.value;
-  data.profile.bio = $bio.value;
-  data.profile.avatarUrl = $avatarUrl.value;
-  $form.reset();
-  viewSwapping('profile');
-}
-
 $avatarUrl.addEventListener('input', updateProfileImage);
 
 $form.addEventListener('submit', formSubmitted);
@@ -43,6 +28,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+document.addEventListener('click', function (e) {
+  if (e.target.getAttribute('href') === null) {
+    return;
+  }
+  if (e.target.getAttribute('href') === '#') {
+    if (data.profile.username !== '') {
+      if (e.target.getAttribute('data-view') === 'profile') {
+        viewSwapping('profile');
+      } else {
+        viewSwapping('edit-profile');
+      }
+    }
+  }
+});
+
+function updateProfileImage(event) {
+  $profileImage.setAttribute('src', event.target.value);
+}
+
+function formSubmitted(event) {
+  event.preventDefault();
+  data.profile.username = $username.value;
+  data.profile.fullName = $fullName.value;
+  data.profile.location = $location.value;
+  data.profile.bio = $bio.value;
+  data.profile.avatarUrl = $avatarUrl.value;
+  $form.reset();
+  viewSwapping('profile');
+}
+
 function viewSwapping(currentValue) {
   if (currentValue === 'profile') {
     $container[0].className = 'container hidden';
@@ -52,6 +67,14 @@ function viewSwapping(currentValue) {
   } else if (currentValue === 'edit-profile') {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
+    $avatarUrl.value = data.profile.avatarUrl;
+    $username.value = data.profile.username;
+    $fullName.value = data.profile.fullName;
+    $location.value = data.profile.location;
+    $bio.value = data.profile.bio;
+    if ($avatarUrl.value !== '') {
+      $profileImage.setAttribute('src', $avatarUrl.value);
+    }
   }
   data.view = currentValue;
 }
@@ -104,6 +127,14 @@ function renderProfile(data) {
   profileBio.className = 'bio';
   profileBio.textContent = data.profile.bio;
 
+  var editDiv = document.createElement('div');
+  editDiv.className = 'form-action';
+
+  var editButton = document.createElement('button');
+  editButton.textContent = 'Edit Profile';
+  editButton.setAttribute('href', '#');
+  editButton.setAttribute('data-view', 'edit-profile');
+
   containerDiv.appendChild(nameSection);
   containerDiv.appendChild(profileSection);
   nameSection.appendChild(name);
@@ -113,6 +144,8 @@ function renderProfile(data) {
   profileInfoDiv.appendChild(usernameDiv);
   profileInfoDiv.appendChild(locationDiv);
   profileInfoDiv.appendChild(profileBio);
+  profileInfoDiv.appendChild(editDiv);
+  editDiv.appendChild(editButton);
   usernameDiv.appendChild(userIcon);
   usernameDiv.appendChild(profileUsername);
   locationDiv.appendChild(locationIcon);

@@ -16,6 +16,13 @@ h2 {
   font-weight: bold;
 }
 
+a {
+  font-size: 1.2rem;
+  margin-left: 30px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
 label,
 input,
 textarea {
@@ -79,7 +86,7 @@ p {
   color: rgb(112, 112, 112);
 }
 
-.profile-info div,
+.profile-info div:not(.form-action),
 p {
   width: 100%;
   margin: 20px 0;
