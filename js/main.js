@@ -52,6 +52,12 @@ function viewSwapping(currentValue) {
   } else if (currentValue === 'edit-profile') {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
+    $avatarUrl.value = data.profile.avatarUrl;
+    $profileImage.setAttribute('src', $avatarUrl.value);
+    $username.value = data.profile.username;
+    $fullName.value = data.profile.fullName;
+    $location.value = data.profile.location;
+    $bio.value = data.profile.bio;
   }
   data.view = currentValue;
 }
