@@ -33,10 +33,12 @@ document.addEventListener('click', function (e) {
     return;
   }
   if (e.target.getAttribute('href') === '#') {
-    if (e.target.getAttribute('data-view') === 'profile') {
-      viewSwapping('profile');
-    } else {
-      viewSwapping('edit-profile');
+    if (data.profile.username !== '') {
+      if (e.target.getAttribute('data-view') === 'profile') {
+        viewSwapping('profile');
+      } else {
+        viewSwapping('edit-profile');
+      }
     }
   }
 });
@@ -66,11 +68,13 @@ function viewSwapping(currentValue) {
     $container[1].className = 'container hidden';
     $container[0].className = 'container';
     $avatarUrl.value = data.profile.avatarUrl;
-    $profileImage.setAttribute('src', $avatarUrl.value);
     $username.value = data.profile.username;
     $fullName.value = data.profile.fullName;
     $location.value = data.profile.location;
     $bio.value = data.profile.bio;
+    if ($avatarUrl.value !== '') {
+      $profileImage.setAttribute('src', $avatarUrl.value);
+    }
   }
   data.view = currentValue;
 }
