@@ -110,6 +110,14 @@ function renderProfile(data) {
   profileBio.className = 'bio';
   profileBio.textContent = data.profile.bio;
 
+  var editDiv = document.createElement('div');
+  editDiv.className = 'form-action';
+
+  var editButton = document.createElement('button');
+  editButton.textContent = 'Edit Profile';
+  editButton.setAttribute('href', '#');
+  editButton.setAttribute('data-view', 'edit-profile');
+
   containerDiv.appendChild(nameSection);
   containerDiv.appendChild(profileSection);
   nameSection.appendChild(name);
@@ -119,6 +127,8 @@ function renderProfile(data) {
   profileInfoDiv.appendChild(usernameDiv);
   profileInfoDiv.appendChild(locationDiv);
   profileInfoDiv.appendChild(profileBio);
+  profileInfoDiv.appendChild(editDiv);
+  editDiv.appendChild(editButton);
   usernameDiv.appendChild(userIcon);
   usernameDiv.appendChild(profileUsername);
   locationDiv.appendChild(locationIcon);
