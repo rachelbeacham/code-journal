@@ -34,7 +34,7 @@ document.addEventListener('click', function (e) {
   }
   if (e.target.getAttribute('href') === '#') {
     if (e.target.getAttribute('data-view') === 'profile') {
-      viewSwapping('pofile');
+      viewSwapping('profile');
     } else {
       viewSwapping('edit-profile');
     }
