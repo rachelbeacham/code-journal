@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var userData = localStorage.getItem('profile');
   if (userData !== null) {
     data.profile = JSON.parse(userData);
-  } if (data.profile.username === '') {
+  }
+  if (data.profile.username === '') {
     viewSwapping('edit-profile');
   } else {
     viewSwapping('profile');
