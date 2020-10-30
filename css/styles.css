@@ -64,6 +64,10 @@ button:focus {
   border-bottom: 2px solid darkgray;
 }
 
+.last {
+  margin-top: 15px;
+}
+
 .image {
   width: 100%;
 }

@@ -32,7 +32,6 @@
     <div data-view="edit-profile" class="container row hidden">
       <div class="column-full">
         <h1>Edit Profile</h1>
-
       </div>
 
       <form class="edit-profile-form">
@@ -71,6 +70,32 @@
     </div>
 
     <div data-view="create-entry" class="container">
+      <div class="column-full">
+        <h1>Create Entry</h1>
+      </div>
+      <form class="create-entry-form">
+        <div class="row">
+
+          <div class="column-half">
+            <img class="image" src="images/placeholder-image-square.jpg" alt="placeholder image">
+          </div>
+
+          <div class="column-half">
+            <label for="imageUrl">Image URL</label>
+            <input required name="imageUrl" id="imageUrl" type="url">
+            <label for="title">Title</label>
+            <input required name="title" id="title" type="text">
+          </div>
+
+          <div class="column-full">
+          <label for="notes">Notes</label>
+          <textarea required name="notes" id="notes" rows="5"></textarea>
+          <div class="form-action">
+            <button type="submit">SAVE</button>
+          </div>
+        </div>
+        </div>
+      </form>
 
     </div>
 
