@@ -36,8 +36,10 @@ document.addEventListener('click', function (e) {
     if (data.profile.username !== '') {
       if (e.target.getAttribute('data-view') === 'profile') {
         viewSwapping('profile');
-      } else {
+      } else if (e.target.getAttribute('data-view') === 'edit-profile') {
         viewSwapping('edit-profile');
+      } else if (e.target.getAttribute('data-view') === 'entries') {
+        viewSwapping('entries');
       }
     }
   }
@@ -61,11 +63,15 @@ function formSubmitted(event) {
 function viewSwapping(currentValue) {
   if (currentValue === 'profile') {
     $container[0].className = 'container hidden';
+    $container[2].className = 'container hidden';
+    $container[3].className = 'container hidden';
     $container[1].className = 'container';
     $container[1].innerHTML = '';
     $container[1].appendChild(renderProfile(data));
   } else if (currentValue === 'edit-profile') {
     $container[1].className = 'container hidden';
+    $container[2].className = 'container hidden';
+    $container[3].className = 'container hidden';
     $container[0].className = 'container';
     $avatarUrl.value = data.profile.avatarUrl;
     $username.value = data.profile.username;
@@ -74,6 +80,20 @@ function viewSwapping(currentValue) {
     $bio.value = data.profile.bio;
     if ($avatarUrl.value !== '') {
       $profileImage.setAttribute('src', $avatarUrl.value);
+    }
+  } else if (currentValue === 'entries') {
+    if (data.username !== '') {
+      $container[0].className = 'container hidden';
+      $container[1].className = 'container hidden';
+      $container[3].className = 'container hidden';
+      $container[2].className = 'container';
+    }
+  } else if (currentValue === 'create-entry') {
+    if (data.username !== '') {
+      $container[0].className = 'container hidden';
+      $container[1].className = 'container hidden';
+      $container[2].className = 'container hidden';
+      $container[3].className = 'container';
     }
   }
   data.view = currentValue;
