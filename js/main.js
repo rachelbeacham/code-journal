@@ -6,18 +6,25 @@ var $location = document.querySelector('#location');
 var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
-var $imageUrl = document.querySelector('#entryImageUrl');
+var $entryImageUrl = document.querySelector('#entryImageUrl');
 var $entryImage = document.querySelector('.entry');
+var $entryTitle = document.querySelector('#title');
+var $entryNotes = document.querySelector('#notes');
+var $newEntryForm = document.querySelector('.create-entry-form');
 
 $avatarUrl.addEventListener('input', updateProfileImage);
 
-$imageUrl.addEventListener('input', updateEntryImage);
+$entryImageUrl.addEventListener('input', updateEntryImage);
 
 $form.addEventListener('submit', formSubmitted);
 
+$newEntryForm.addEventListener('submit', entryFormSubmitted);
+
 window.addEventListener('beforeunload', function () {
   var dataProfileJson = JSON.stringify(data.profile);
+  var dataEntriesJson = JSON.stringify(data.entries);
   localStorage.setItem('profile', dataProfileJson);
+  localStorage.setItem('entries', dataEntriesJson);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -56,6 +63,18 @@ function updateProfileImage(event) {
 }
 function updateEntryImage(event) {
   $entryImage.setAttribute('src', event.target.value);
+}
+
+function entryFormSubmitted(event) {
+  event.preventDefault();
+  var entryObj = {
+    entryImageUrl: $entryImageUrl.value,
+    entryTitle: $entryTitle.value,
+    entryNotes: $entryNotes.value
+  };
+  data.entries.push(entryObj);
+  $newEntryForm.reset();
+  viewSwapping('entries');
 }
 
 function formSubmitted(event) {
