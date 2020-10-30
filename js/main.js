@@ -6,8 +6,12 @@ var $location = document.querySelector('#location');
 var $bio = document.querySelector('#bio');
 var $form = document.querySelector('.edit-profile-form');
 var $container = document.querySelectorAll('.container');
+var $imageUrl = document.querySelector('#entryImageUrl');
+var $entryImage = document.querySelector('.entry');
 
 $avatarUrl.addEventListener('input', updateProfileImage);
+
+$imageUrl.addEventListener('input', updateEntryImage);
 
 $form.addEventListener('submit', formSubmitted);
 
@@ -49,6 +53,9 @@ document.addEventListener('click', function (e) {
 
 function updateProfileImage(event) {
   $profileImage.setAttribute('src', event.target.value);
+}
+function updateEntryImage(event) {
+  $entryImage.setAttribute('src', event.target.value);
 }
 
 function formSubmitted(event) {
