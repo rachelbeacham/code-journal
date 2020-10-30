@@ -53,7 +53,7 @@
          <div class="column-full">
             <label for="bio">Bio</label>
             <textarea required name="bio" id="bio" rows="5"></textarea>
-            <div class="form-action">
+            <div class="action">
               <button type="submit">SAVE</button>
             </div>
         </div>
@@ -66,12 +66,18 @@
     </div>
 
     <div data-view="entries" class="container">
+      <div class="row">
+          <h1 class="column-half">Entries</h1>
+          <div class="column-half">
+            <button class="action" href="#" data-view="create-entry">New Entry</button>
+          </div>
+      </div>
 
     </div>
 
     <div data-view="create-entry" class="container">
       <div class="column-full">
-        <h1>Create Entry</h1>
+        <h1>New Entry</h1>
       </div>
       <form class="create-entry-form">
         <div class="row">
@@ -90,7 +96,7 @@
           <div class="column-full">
           <label for="notes">Notes</label>
           <textarea required name="notes" id="notes" rows="5"></textarea>
-          <div class="form-action">
+          <div class="action">
             <button type="submit">SAVE</button>
           </div>
         </div>

@@ -40,6 +40,8 @@ document.addEventListener('click', function (e) {
         viewSwapping('edit-profile');
       } else if (e.target.getAttribute('data-view') === 'entries') {
         viewSwapping('entries');
+      } else if (e.target.getAttribute('data-view') === 'create-entry') {
+        viewSwapping('create-entry');
       }
     }
   }
@@ -148,7 +150,7 @@ function renderProfile(data) {
   profileBio.textContent = data.profile.bio;
 
   var editDiv = document.createElement('div');
-  editDiv.className = 'form-action';
+  editDiv.className = 'action';
 
   var editButton = document.createElement('button');
   editButton.textContent = 'Edit Profile';
