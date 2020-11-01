@@ -201,3 +201,42 @@ function renderProfile(data) {
 
   return containerDiv;
 }
+
+function renderEntries (dataObj) {
+  var unorderedEntryList = document.createElement('ul');
+
+  var entryListItem = document.createElement('li');
+  entryListItem.className = 'row';
+
+  var entryImageDiv = document.createElement('div');
+  entryImageDiv.className = 'column-half';
+
+  var entryImage = document.createElement('img');
+  entryImage.className = 'image';
+  entryImage.setAttribute('src', entryObj.entryImageUrl);
+
+  var entryInfoDiv = document.createElement('div');
+  entryInfoDiv.className = 'column-half column';
+
+  var entryTitle = document.createElement('h2');
+  entryTitle.className = 'title';
+  entryTitle.textContent = entryObj.entryTitle;
+
+  var entryDescription = document.createElement('p');
+  entryDescription.textContent = entryObj.entryNotes;
+
+
+  unorderedEntryList.appendChild(entryListItem);
+  entryListItem.appendChild(entryImageDiv);
+  entryImageDiv.appendChild(entryImage);
+  entryListItem.appendChild(entryInfoDiv);
+  entryInfoDiv.appendChild(entryTitle);
+  entryInfoDiv.appendChild(entryDescription);
+
+
+
+
+
+
+
+}
