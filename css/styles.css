@@ -6,7 +6,8 @@ button {
 }
 
 h1,
-label {
+label,
+ul {
   font-family: 'Itim', cursive;
   color: rgb(79, 160, 160);
 }
@@ -64,23 +65,14 @@ button:focus {
   border-bottom: 2px solid darkgray;
 }
 
-.image {
-  width: 100%;
-}
-
-.action {
-  display: flex;
-  justify-content: flex-end;
-  margin: 30px 0;
-}
-
 i {
   font-size: 1.3rem;
   margin-right: 6px;
 }
 
 span,
-p {
+p,
+.title > p {
   font-size: 1.2rem;
   font-family: 'Barlow Condensed', sans-serif;
   color: rgb(112, 112, 112);
@@ -92,4 +84,24 @@ p {
   margin: 10px 0;
   padding: 20px 0;
   border-bottom: 1px solid rgb(79, 160, 160);
+}
+
+ul {
+  padding: 0;
+}
+li.row {
+  margin-bottom: 15px;
+}
+.image {
+  width: 100%;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 0;
+}
+.column {
+  display: flex;
+  flex-direction: column;
 }
