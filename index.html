@@ -20,7 +20,10 @@
 
   <header class="row">
     <div class="column-full">
-      <h2 class="column-half">Code Journal <a href="#" data-view="profile">Profile</a></h2>
+      <h2 class="column-half">Code Journal
+        <a href="#" data-view="profile">Profile</a>
+        <a href="#" data-view="entries">Entries</a>
+    </h2>
 
     </div>
   </header>
@@ -29,7 +32,6 @@
     <div data-view="edit-profile" class="container row hidden">
       <div class="column-full">
         <h1>Edit Profile</h1>
-
       </div>
 
       <form class="edit-profile-form">
@@ -51,7 +53,7 @@
          <div class="column-full">
             <label for="bio">Bio</label>
             <textarea required name="bio" id="bio" rows="5"></textarea>
-            <div class="form-action">
+            <div class="action">
               <button type="submit">SAVE</button>
             </div>
         </div>
@@ -60,6 +62,45 @@
     </div>
 
     <div data-view="profile" class="container">
+
+    </div>
+
+    <div data-view="entries" class="container">
+      <div class="row">
+          <h1 class="column-half">Entries</h1>
+          <div class="column-half">
+            <button class="action" href="#" data-view="create-entry">New Entry</button>
+          </div>
+      </div>
+    </div>
+
+    <div data-view="create-entry" class="container">
+      <div class="column-full">
+        <h1>New Entry</h1>
+      </div>
+      <form class="create-entry-form">
+        <div class="row">
+
+          <div class="column-half">
+            <img class="image entry" src="images/placeholder-image-square.jpg" alt="placeholder image">
+          </div>
+
+          <div class="column-half">
+            <label for="imageUrl">Image URL</label>
+            <input required name="entryImageUrl" id="entryImageUrl" type="url">
+            <label for="title">Title</label>
+            <input required name="title" id="title" type="text">
+          </div>
+
+          <div class="column-full">
+          <label for="notes">Notes</label>
+          <textarea required name="notes" id="notes" rows="5"></textarea>
+          <div class="action">
+            <button type="submit">SAVE</button>
+          </div>
+        </div>
+        </div>
+      </form>
 
     </div>
 

@@ -18,7 +18,7 @@ h2 {
 
 a {
   font-size: 1.2rem;
-  margin-left: 30px;
+  margin-left: 5%;
   color: whitesmoke;
   text-decoration: none;
 }
@@ -68,7 +68,7 @@ button:focus {
   width: 100%;
 }
 
-.form-action {
+.action {
   display: flex;
   justify-content: flex-end;
   margin: 30px 0;
@@ -86,10 +86,10 @@ p {
   color: rgb(112, 112, 112);
 }
 
-.profile-info div:not(.form-action),
+.profile-info div:not(.action),
 p {
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 20px 0;
   border-bottom: 1px solid rgb(79, 160, 160);
 }
