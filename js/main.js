@@ -132,6 +132,7 @@ function viewSwapping(currentValue) {
       $container[1].className = 'container hidden';
       $container[2].className = 'container hidden';
       $container[3].className = 'container';
+      $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg')
     }
   }
   data.view = currentValue;

@@ -101,7 +101,3 @@ li.row {
   justify-content: flex-end;
   margin: 30px 0;
 }
-.column {
-  display: flex;
-  flex-direction: column;
-}
