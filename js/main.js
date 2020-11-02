@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
       $container[2].appendChild(renderEntries(data.entries[i]));
     }
   }
-
 });
 
 document.addEventListener('click', function (e) {
@@ -84,6 +83,8 @@ function entryFormSubmitted(event) {
   data.entries.push(entryObj);
   $newEntryForm.reset();
   viewSwapping('entries');
+  var lastIndex = data.entries.length - 1;
+  $container[2].appendChild(renderEntries(data.entries[lastIndex]));
 }
 
 function formSubmitted(event) {
