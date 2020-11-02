@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     viewSwapping('profile');
   }
+  var userEntries = localStorage.getItem('entries');
+  if (userEntries !== null) {
+    data.entries = JSON.parse(userEntries);
+    for (var i = 0; i < data.entries.length; i++) {
+      $container[2].appendChild(renderEntries(data.entries[i]));
+    }
+  }
+
 });
 
 document.addEventListener('click', function (e) {
@@ -61,6 +69,7 @@ document.addEventListener('click', function (e) {
 function updateProfileImage(event) {
   $profileImage.setAttribute('src', event.target.value);
 }
+
 function updateEntryImage(event) {
   $entryImage.setAttribute('src', event.target.value);
 }
@@ -202,7 +211,7 @@ function renderProfile(data) {
   return containerDiv;
 }
 
-function renderEntries (dataObj) {
+function renderEntries(entryObj) {
   var unorderedEntryList = document.createElement('ul');
 
   var entryListItem = document.createElement('li');
@@ -218,25 +227,19 @@ function renderEntries (dataObj) {
   var entryInfoDiv = document.createElement('div');
   entryInfoDiv.className = 'column-half column';
 
-  var entryTitle = document.createElement('h2');
-  entryTitle.className = 'title';
-  entryTitle.textContent = entryObj.entryTitle;
+  var $entryTitle = document.createElement('h2');
+  $entryTitle.className = 'title';
+  $entryTitle.textContent = entryObj.entryTitle;
 
   var entryDescription = document.createElement('p');
   entryDescription.textContent = entryObj.entryNotes;
-
 
   unorderedEntryList.appendChild(entryListItem);
   entryListItem.appendChild(entryImageDiv);
   entryImageDiv.appendChild(entryImage);
   entryListItem.appendChild(entryInfoDiv);
-  entryInfoDiv.appendChild(entryTitle);
+  entryInfoDiv.appendChild($entryTitle);
   entryInfoDiv.appendChild(entryDescription);
 
-
-
-
-
-
-
+  return unorderedEntryList;
 }
