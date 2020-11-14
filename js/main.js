@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     viewSwapping('profile');
   }
+  var userEntries = localStorage.getItem('entries');
+  if (userEntries !== null) {
+    data.entries = JSON.parse(userEntries);
+    for (var i = 0; i < data.entries.length; i++) {
+      $container[2].appendChild(renderEntries(data.entries[i]));
+    }
+  }
 });
 
 document.addEventListener('click', function (e) {
@@ -61,6 +68,7 @@ document.addEventListener('click', function (e) {
 function updateProfileImage(event) {
   $profileImage.setAttribute('src', event.target.value);
 }
+
 function updateEntryImage(event) {
   $entryImage.setAttribute('src', event.target.value);
 }
@@ -75,6 +83,8 @@ function entryFormSubmitted(event) {
   data.entries.push(entryObj);
   $newEntryForm.reset();
   viewSwapping('entries');
+  var lastIndex = data.entries.length - 1;
+  $container[2].appendChild(renderEntries(data.entries[lastIndex]));
 }
 
 function formSubmitted(event) {
@@ -122,6 +132,7 @@ function viewSwapping(currentValue) {
       $container[1].className = 'container hidden';
       $container[2].className = 'container hidden';
       $container[3].className = 'container';
+      $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg')
     }
   }
   data.view = currentValue;
@@ -200,4 +211,37 @@ function renderProfile(data) {
   locationDiv.appendChild(profileLocation);
 
   return containerDiv;
+}
+
+function renderEntries(entryObj) {
+  var unorderedEntryList = document.createElement('ul');
+
+  var entryListItem = document.createElement('li');
+  entryListItem.className = 'row';
+
+  var entryImageDiv = document.createElement('div');
+  entryImageDiv.className = 'column-half';
+
+  var entryImage = document.createElement('img');
+  entryImage.className = 'image';
+  entryImage.setAttribute('src', entryObj.entryImageUrl);
+
+  var entryInfoDiv = document.createElement('div');
+  entryInfoDiv.className = 'column-half column';
+
+  var $entryTitle = document.createElement('h2');
+  $entryTitle.className = 'title';
+  $entryTitle.textContent = entryObj.entryTitle;
+
+  var entryDescription = document.createElement('p');
+  entryDescription.textContent = entryObj.entryNotes;
+
+  unorderedEntryList.appendChild(entryListItem);
+  entryListItem.appendChild(entryImageDiv);
+  entryImageDiv.appendChild(entryImage);
+  entryListItem.appendChild(entryInfoDiv);
+  entryInfoDiv.appendChild($entryTitle);
+  entryInfoDiv.appendChild(entryDescription);
+
+  return unorderedEntryList;
 }
